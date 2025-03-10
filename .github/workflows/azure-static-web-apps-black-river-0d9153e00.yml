@@ -30,7 +30,7 @@ jobs:
       - run: tar -czf build-web.tar.gz build/web
       
       - name: Upload build/web as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-web
           path: build-web.tar.gz
