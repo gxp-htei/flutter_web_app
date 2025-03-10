@@ -26,10 +26,8 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build web          
-      - name: Check build/web contents
-        run: ls -l build/web
-      - name: Archive build/web folder
-        run: tar -czf build-web.tar.gz build/web
+      - run: ls -l build/web
+      - run: tar -czf build-web.tar.gz build/web
       
       - name: Upload build/web as artifact
         uses: actions/upload-artifact@v3
