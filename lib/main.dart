@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_app/servicereportpdfview.dart';
+
+import 'pdfview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -105,9 +108,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
+            ElevatedButton(
+              onPressed: () async {
+                final pdfData = await ServiceReportPdfView().build();
+                if (!context.mounted) return;
+                Navigator.push(context, MaterialPageRoute(builder: (_) => PdfView(pdf: pdfData)));
+              },
+              child: const Text('Create PDF'),
             ),
           ],
         ),
