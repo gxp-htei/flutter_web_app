@@ -26,14 +26,6 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build web          
-      - run: ls -l ./
-      - run: tar -czf build-web.tar.gz ./
-      
-      - name: Upload build/web as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-web
-          path: build-web.tar.gz
       
       - name: Build And Deploy
         id: builddeploy
