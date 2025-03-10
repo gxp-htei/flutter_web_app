@@ -26,8 +26,8 @@ jobs:
       - run: flutter pub get
       # - run: flutter test
       - run: flutter build web          
-      - run: ls -l build/web
-      - run: tar -czf build-web.tar.gz build/web
+      - run: ls -l ./
+      - run: tar -czf build-web.tar.gz ./
       
       - name: Upload build/web as artifact
         uses: actions/upload-artifact@v4
@@ -44,9 +44,9 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "build/web" # App source code path
-          api_location: "cs" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
+          app_location: "/" # App source code path
+          api_location: "" # Api source code path - optional
+          output_location: "build/web" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
